@@ -1,0 +1,44 @@
+<form  action="http://192.168.43.149/cgi-bin/dockerrun.py" >
+
+<body style="background-color:powderblue;">
+
+<h1 style="color:red;text-align:center;">Welcome To Docker Menu!!</h1>
+<br></br>
+
+<pre>
+Please enter your command:<input type="text" name="x"> 
+
+Enter your OS name:       <input type="text" name ="y"> 
+
+Select OS image name:<select name="i">
+			<option></option>
+			<option>centos:latest</option>
+			<option>ubuntu:latest</option>
+			<option>kalilinux/kali-rolling:latest</option>
+		     </select>		
+
+
+<input type = "submit">
+
+
+
+
+
+<mark>Guidelines</mark>
+**In command section enter**
+1)'launch os' ==> To launch new container
+2)'start os'  ==> To start container
+3)'stop os'   ==> To stop container
+4)'delete os' ==> To remove container
+5)'show list' ==> To see all running container
+
+
+**Keep OS name and Image name empty if not needed**
+
+
+</pre>
+
+</body>
+</form>
+
+

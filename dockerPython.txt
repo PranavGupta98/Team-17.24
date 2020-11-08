@@ -1,0 +1,46 @@
+#!/usr/bin/python3
+print("content-type:text/html")
+
+print()
+
+import subprocess
+import cgi
+
+form = cgi.FieldStorage()
+cmd = form.getvalue("x")
+os_name = form.getvalue("y")
+os_img = form.getvalue("i")
+
+print(os_name)
+
+if 'launch' in cmd:
+    exe_cmd = 'sudo docker run -d -i -t --name {0} {1}'.format(os_name,os_img)
+    subprocess.getoutput(exe_cmd)
+    print('launched Successfully')
+
+elif 'show' and 'list' in cmd:
+    exe_cmd = 'sudo docker ps'
+    output =subprocess.getstatusoutput(exe_cmd)
+    print(output[1])
+
+elif 'start' or 'stop' or 'delete' in cmd:
+    if 'start' in cmd:
+        act='start'
+
+    elif 'stop' in cmd:
+        act = 'stop'
+
+    elif 'delete' in cmd:
+        act = 'rm'
+
+    exe_cmd = 'sudo docker {0} {1}'.format(act, os_name) 
+    subprocess.getoutput(exe_cmd)
+
+    print("action successful")
+
+
+
+
+
+
+
